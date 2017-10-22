@@ -1,33 +1,41 @@
-CREATE DATABASE atividade;
-USE atividade;
+create database questa;
 
-CREATE TABLE status  (
-  idstatus INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
-  status  VARCHAR(255) NULL,
-  PRIMARY KEY(idstatus)
-);
+use questa;
 
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `nome` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `cpf` int(13) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-INSERT INTO `status` (`idstatus`, `status`) VALUES
-(1, 'Pendente'),
-(2, 'Em Desenvolvimento'),
-(3, 'Em Teste'),
-(4, 'Concluído');
+--
+-- Extraindo dados da tabela `users`
+--
 
-CREATE TABLE controle (
-  idcontrole INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
-  status_idstatus INTEGER UNSIGNED NOT NULL,
-  nome VARCHAR(255) NULL,
-  descricao VARCHAR(600) NULL,
-  data_inicio DATE NULL,
-  data_fim DATE NULL,
-  situacao INTEGER UNSIGNED NULL,
-  PRIMARY KEY(idcontrole),
-  INDEX controle_FKIndex1(status_idstatus),
-  FOREIGN KEY(status_idstatus)
-    REFERENCES status (idstatus)
-      ON DELETE NO ACTION
-      ON UPDATE NO ACTION
-);
+INSERT INTO `users` (`id`, `nome`, `email`, `cpf`) VALUES
+(1, 'Anderson', 'andoliversant@hotmail.com', 987654321),
+(2, 'Pedro', 'pedro@hotmail.com.br', 1267);
 
+--
+-- Indexes for dumped tables
+--
 
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
