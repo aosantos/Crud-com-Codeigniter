@@ -6,7 +6,7 @@ CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `nome` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
-  `cpf` int(13) DEFAULT NULL
+  `cpf` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
